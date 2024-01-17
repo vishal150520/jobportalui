@@ -8,29 +8,29 @@
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <h6>SignUp</h6>
           <form>
-            <div class="form-outline mb-4">
+            <div class="form-outline mb-3">
               <input type="email" id="form3Example3" class="form-control form-control-lg"
                 placeholder="Enter a valid email address" />
               <label class="form-label" for="form3Example3">Email address</label>
             </div>
-            <div class="form-outline mb-4">
+            <div class="form-outline mb-3">
                 <input type="text" id="form3Example3" class="form-control form-control-lg"
                   placeholder="phone no" />
                 <label class="form-label" for="form3Example3">PhoneNo</label>
             </div>
-            <div>
+            <div class="form-outline mb-3">
                 <label for="selectOption">For SignUp</label>
                 <select id="selectOption" [(ngModel)]="selectedOption" name="selectOption">
                   <option *ngFor="let option of options" [value]="option">{{ option }}</option>
                 </select>
               </div>
             <!-- Password input -->
-            <div class="form-outline mb-3">
+            <div class="form-outline mb-2">
               <input type="password" id="form3Example4" class="form-control form-control-lg"
                 placeholder="Enter password" />
               <label class="form-label" for="form3Example4">Password</label>
             </div>
-            <div class="form-outline mb-3">
+            <div class="form-outline mb-2">
                 <input type="password" id="form3Example4" class="form-control form-control-lg"
                   placeholder="Confirm password" />
                 <label class="form-label" for="form3Example4">Confirm Password</label>
