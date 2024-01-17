@@ -10,6 +10,7 @@ import { SignupComponent } from './Component/signup/signup.component';
 import { AboutComponent } from './Component/about/about.component';
 import { ContactComponent } from './Component/contact/contact.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

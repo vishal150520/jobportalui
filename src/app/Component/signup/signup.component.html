@@ -6,9 +6,8 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+            <h6>SignUp</h6>
           <form>
-            <h2>SignUp</h2>
-            <!-- Email input -->
             <div class="form-outline mb-4">
               <input type="email" id="form3Example3" class="form-control form-control-lg"
                 placeholder="Enter a valid email address" />
@@ -19,6 +18,12 @@
                   placeholder="phone no" />
                 <label class="form-label" for="form3Example3">PhoneNo</label>
             </div>
+            <div>
+                <label for="selectOption">For SignUp</label>
+                <select id="selectOption" [(ngModel)]="selectedOption" name="selectOption">
+                  <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+                </select>
+              </div>
             <!-- Password input -->
             <div class="form-outline mb-3">
               <input type="password" id="form3Example4" class="form-control form-control-lg"
@@ -44,7 +49,7 @@
   
             <div class="text-center text-lg-start mt-4 pt-2">
               <button type="button" class="btn btn-primary btn-lg"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">Signup</button>
+                style="padding-left: 2.2rem; padding-right: 2.2rem;">Signup</button>
               <p class="small fw-bold mt-2 pt-1 mb-0">If you have an account? <a routerLink="/login"
                   class="link-danger">Login</a>
               </p>
