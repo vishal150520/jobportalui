@@ -11,7 +11,6 @@ import { AboutComponent } from './Component/about/about.component';
 import { ContactComponent } from './Component/contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './Component/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +21,6 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
     AboutComponent,
     ContactComponent,
     HomeComponent,
-    DashboardComponent,
   ],
   imports: [
     BrowserModule,
