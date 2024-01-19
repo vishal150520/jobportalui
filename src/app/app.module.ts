@@ -12,6 +12,8 @@ import { ContactComponent } from './Component/contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpassword.component';
+import { CandidatedashboardComponent } from './Candidate/candidatedashboard/candidatedashboard.component';
+import { CompanydashboardComponent } from './Company/companydashboard/companydashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,8 @@ import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpasswo
     ContactComponent,
     HomeComponent,
     ForgotpasswordComponent,
+    CandidatedashboardComponent,
+    CompanydashboardComponent,
   ],
   imports: [
     BrowserModule,
