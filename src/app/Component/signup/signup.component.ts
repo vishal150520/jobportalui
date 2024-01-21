@@ -88,12 +88,38 @@ export class SignupComponent implements OnInit {
         // Handle the response as needed
       },
       (error) => {
-        console.error('Error  api regmaking POST request:', error);
+        console.error('Error  api reg POST request:', error);
         // Handle the error as needed
       }
     );
+    const emaildata = {
+      "to": this.myForm.get('email')?.value,
+      "subject": "<h1>string</h1>",
+      "body": "<h1>string</h1>"
+    }
     // You can send the form values to your server or perform any other action here
-
+    this.allservices.email(emaildata).subscribe(
+      (response) => {
+        console.log('send email', response);
+        // Handle the response as needed
+      },
+      (error) => {
+        console.error('Error send email POST request:', error);
+        // Handle the error as needed
+      }
+    );
+    const mail=`"${this.myForm.get('email')?.value}"`;
+     window.alert(mail)
+    this.allservices.getmailconfirmtoken(mail).subscribe(
+      (response) => {
+        console.log('get token', response);
+        // Handle the response as needed
+      },
+      (error) => {
+        console.error('Error mail confirmation', error);
+        // Handle the error as needed
+      }
+    );
   }
   private hashPassword(password: string): string {
     // Replace this with your actual hashing logic
