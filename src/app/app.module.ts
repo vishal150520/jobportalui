@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpassword.component';
 import { CandidatedashboardComponent } from './Candidate/candidatedashboard/candidatedashboard.component';
 import { CompanydashboardComponent } from './Company/companydashboard/companydashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,

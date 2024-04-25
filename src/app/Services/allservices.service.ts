@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class IAllservicesService {
+export class IAllservicesService  {
   readonly apiregUrl = environment.apiUrl;
   readonly identityregUrl = environment.identityUrl;
   readonly emailUrll = environment.emailUrl;
@@ -34,17 +34,13 @@ export class IAllservicesService {
 
     return this.http.post(apiidentityUrl, data, { headers });
   }
-
-  getmailconfirmtoken(email: string): Observable<any> {
-    const mailconfirm = `${this.identityregUrl}/Account/getemailconfirmationtoken`; // Replace with your actual POST API endpoint
-
-    // You may need to set headers based on your API requirements
+  getEmailConfirmationToken(email: string): Observable<any> {
+    const url = `${this.identityregUrl}/Account/getemailconfirmationtoken`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      // Add any other headers as needed
+      'accept': '*/*'
     });
-
-    return this.http.post(mailconfirm, email, { headers });
+    return this.http.post<any>(url, `"${email}"`, { headers });
   }
   email(data: any): Observable<any> {
     const emailUrl = `${this.emailUrll}`; // Replace with your actual POST API endpoint
@@ -56,5 +52,16 @@ export class IAllservicesService {
     });
 
     return this.http.post(emailUrl, data, { headers });
+  }
+  candidatelogin(data:any): Observable<any> {
+    const apiidentityUrl = `${this.identityregUrl}/Account/login`; // Replace with your actual POST API endpoint
+
+    // You may need to set headers based on your API requirements
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // Add any other headers as needed
+    });
+
+    return this.http.post(apiidentityUrl,data, { headers });
   }
 }

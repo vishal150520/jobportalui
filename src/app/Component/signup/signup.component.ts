@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IAllservicesService } from 'src/app/Services/allservices.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  token:any
   myForm!: FormGroup;
   constructor(private fb: FormBuilder,private allservices: IAllservicesService) { }
 
@@ -74,11 +76,9 @@ export class SignupComponent implements OnInit {
     this.allservices.identityregister(regdata).subscribe(
       (response) => {
         console.log('POST identity successful:', response);
-        // Handle the response as needed
       },
       (error) => {
         console.error('Error identity making POST request:', error);
-        // Handle the error as needed
       }
     );
     this.allservices.apiregister(dataToSend).subscribe(
@@ -92,34 +92,31 @@ export class SignupComponent implements OnInit {
         // Handle the error as needed
       }
     );
-    const emaildata = {
+    const email=`${this.myForm.get('email')?.value}`; // Replace with the email you want to fetch data for
+    this.allservices.getEmailConfirmationToken(email).subscribe(data => {
+      const  emailConfirmationToken = data.result.emailConfirmationToken;
+      console.log(emailConfirmationToken)
+       environment.emailverify=emailConfirmationToken;
+      // Handle the response data here
+    }, error => {
+      console.error('Error:', error);
+      // Handle errors here
+    });
+    const emaildata = {                        
       "to": this.myForm.get('email')?.value,
       "subject": "<h1>string</h1>",
-      "body": "<h1>string</h1>"
+      "body":`https://localhost:7022/api/Account/confirmemail?email=${email}&?token=${environment.emailverify}`
     }
-    // You can send the form values to your server or perform any other action here
+   // You can send the form values to your server or perform any other action here
     this.allservices.email(emaildata).subscribe(
       (response) => {
         console.log('send email', response);
-        // Handle the response as needed
       },
       (error) => {
         console.error('Error send email POST request:', error);
-        // Handle the error as needed
       }
     );
-    const mail=`"${this.myForm.get('email')?.value}"`;
-     window.alert(mail)
-    this.allservices.getmailconfirmtoken(mail).subscribe(
-      (response) => {
-        console.log('get token', response);
-        // Handle the response as needed
-      },
-      (error) => {
-        console.error('Error mail confirmation', error);
-        // Handle the error as needed
-      }
-    );
+
   }
   private hashPassword(password: string): string {
     // Replace this with your actual hashing logic

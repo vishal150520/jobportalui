@@ -6,6 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './Component/login/login.component';
 import { SignupComponent } from './Component/signup/signup.component';
 import { ForgotpasswordComponent } from './Component/forgotpassword/forgotpassword.component';
+import { CandidatedashboardComponent } from './Candidate/candidatedashboard/candidatedashboard.component';
+import { AuthguardService } from './Services/authguard.service';
 
 const routes: Routes = [
   { path: '', component:HomeComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'login', component:LoginComponent },
   { path: 'signup', component:SignupComponent },
   { path: 'forgotpassword', component:ForgotpasswordComponent },
+  { path:'candidatedashboard',component:CandidatedashboardComponent,canActivate: [AuthguardService]},
+  
 ];
 
 @NgModule({

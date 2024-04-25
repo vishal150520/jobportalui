@@ -7,6 +7,9 @@ export const environment = {
   identityUrl: 'https://localhost:7022/api',
   apiUrl: 'https://localhost:7063/api',
   emailUrl: 'https://localhost:7172/Email',
+  emailverify:"",
+  token:'',
+  logbutton:true,
 };
 
 /*
